@@ -236,3 +236,57 @@ body {
     .post-footer {
       display: none !important;
     }
+
+	/* Contact Page Styles */
+.contact-wrapper {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 12px;
+  text-decoration: none !important;
+  color: #fff !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.icon-box img {
+  width: 45px;
+  height: 45px;
+  margin-right: 15px;
+  background: white;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.text-box .label { font-size: 12px; opacity: 0.9; }
+.text-box .name { font-size: 18px; font-weight: bold; }
+
+/* Brand Colors */
+.youtube { background: #FF0000; }
+.website { background: #34495e; }
+.whatsapp { background: #25D366; }
+.facebook { background: #1877F2; }
+
+
