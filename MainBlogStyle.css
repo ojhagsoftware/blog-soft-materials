@@ -293,5 +293,11 @@ body {
 	.whatsapp { border-left: 4px solid #25d366; }
 	.website { border-left: 4px solid #34495e; }
 
+.MediaButton {
+	display: flex;
+	flex-direction: row;
+	background: #ff0000;
+}
+
 
 
