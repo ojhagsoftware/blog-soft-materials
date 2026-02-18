@@ -1,4 +1,3 @@
-<script>
 function viewPhoto(imgUrl, caption, element) {
   // Update the main image and caption
   const mainImg = document.getElementById('mainDisplay');
@@ -12,5 +11,4 @@ function viewPhoto(imgUrl, caption, element) {
   items.forEach(item => item.classList.remove('active'));
   element.classList.add('active');
 }
-</script>
 
