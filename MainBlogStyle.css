@@ -237,67 +237,7 @@ body {
       display: none !important;
     }
 
-	/* Clean App-Style Button Grid */
-	.contact-wrapper {
-	  max-width: 900px;
-	  margin: 0 auto;
-	  padding: 20px;
-	  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-	}
 	
-	.contact-grid {
-	  display: grid;
-	  /* This creates 3 columns on desktop, 1 on mobile */
-	  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-	  gap: 12px;
-	  margin-top: 20px;
-	}
-	
-	.contact-card {
-	  display: flex;
-	  align-items: center;
-	  background: #f8f9fa; /* Light grey background */
-	  border: 1px solid #e0e0e0;
-	  border-radius: 8px;
-	  padding: 10px 15px;
-	  text-decoration: none !important;
-	  color: #333 !important;
-	  transition: all 0.2s ease;
-	}
-	
-	.contact-card:hover {
-	  background: #f1f1f1;
-	  border-color: #27ae60; /* Green border on hover */
-	  transform: translateY(-2px);
-	}
-	
-	.icon-box img {
-	  width: 24px !important;  /* Fixed small icon size */
-	  height: 24px !important;
-	  margin-right: 15px;
-	  display: block;
-	  object-fit: contain;
-	}
-	
-	.name {
-	  font-size: 15px;
-	  font-weight: 500;
-	  white-space: nowrap;
-	  overflow: hidden;
-	  text-overflow: ellipsis;
-	}
-	
-	/* Optional: Individual brand colors for the left border only */
-	.youtube { border-left: 4px solid #ff0000; }
-	.facebook { border-left: 4px solid #1877f2; }
-	.whatsapp { border-left: 4px solid #25d366; }
-	.website { border-left: 4px solid #34495e; }
-
-.MediaButton {
-	display: flex;
-	flex-direction: row;
-	background: #ff0000;
-}
 
 
 
