@@ -162,6 +162,14 @@ class NepaliCalendar {
     }
 
     initializeElements() {
+      this.calendarGrid = document.getElementById('calendarGrid');    
+    // Safety Check
+    if (!this.calendarGrid) {
+        console.error("Required element #calendarGrid not found in DOM.");
+        return; 
+    }
+
+    this.bsYearSelect = document.getElementById('bsYearSelect');
         // Calendar view elements
         this.bsYearSelect = document.getElementById('bsYearSelect');
         this.bsMonthSelect = document.getElementById('bsMonthSelect');
@@ -1135,3 +1143,11 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    // Only start if the main container exists
+    if(document.getElementById('CalendarRoot') || document.querySelector('.utils-container')) {
+        window.nepaliCalendar = new NepaliCalendar();
+    }
+});
+
+
