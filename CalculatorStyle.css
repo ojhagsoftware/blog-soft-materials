@@ -1,0 +1,187 @@
+/* Import a digital-style font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Alternative: If you want the '7-segment' LED look, use this import instead: */
+@import url('https://fonts.cdnfonts.com/css/digital-7-mono');
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* A subtle gradient looks more premium than flat black */
+    background: radial-gradient(circle at center, #f1f3f5 0%, #a09c9c 100%);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#question { font-size: 1rem; color: #d00; height: 1.5rem; overflow: hidden; }
+#answer { font-size: 2rem; font-weight: bold; overflow: hidden; }
+
+/* Color Palette & Button Types */
+.btn-num { background: #333333; color: white; } /* Numbers */
+.btn-op { background: #ff9f0a; color: white; }  /* Operators & Equal */
+.btn-sci { background: #424242; color: #66d9ff; font-size: 0.9rem; } /* Trig/Powers */
+.btn-util { background: #a5a5a5; color: black; } /* Parentheses/Fix */
+.btn-clear { background: #ff3b30; color: white; } /* AC Button */
+
+/* Universal Button Hover Effect */
+.calculator {
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 35px;
+    /* Limit the width so it looks like a standalone unit */
+    width: 800px; 
+    max-width: 95vw;    
+    /* This shadow creates the 'floating' effect */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);                
+    border: 1px solid #333;
+}
+
+.display {
+    background: #94a391; /* Classic grey-green LCD background */
+    color: #1a1a1a;    /* Faded black "ink" color */
+    text-align: right;
+    padding: 25px;
+    border-radius: 10px; /* Older calculators were less rounded */
+    margin-bottom: 25px;
+    box-shadow: inset 0 5px 15px rgba(0,0,0,0.3); /* Recessed screen effect */
+    border: 4px solid #333; /* Thick plastic frame around the screen */    
+    /* Apply the font here */
+    font-family: 'Digital-7 Mono', 'Orbitron', monospace;
+}
+
+/* Question Display Visibility Improvements */
+#question {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #aa0000;
+    height: 2.5rem;
+    margin-bottom: 5px;
+    font-family: 'Digital-7 Mono', monospace;
+}
+#question sup {
+    font-size: 1rem;
+    font-weight: bold;
+    vertical-align: top;
+    position: relative;
+    top: -0.2em;
+    color: #00ffcc; /* Matches your cursor color for consistency */
+}
+
+#answer {
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: 'Digital-7 Mono', monospace;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+}
+
+.buttons {
+    display: grid;
+    font-size: 1.5rem;
+    font-weight: bold;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 12px; /* Increased gap for a cleaner look */
+}
+
+button {
+    border: none;
+    border-radius: 12px;
+    padding: 18px 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    /* Subtle 3D lift */
+    box-shadow: 0 4px 0 #111;
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #111;
+}
+
+button:hover {
+    filter: brightness(1.2);
+}
+
+/* Hide scrollbar but allow scrolling for long equations */
+#question::-webkit-scrollbar {
+    display: none;
+}
+.fix-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.fix-container .btn-util {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.fix-dropdown {
+    display: none; /* Hidden by default */
+    position: absolute;
+    bottom: 110%; /* Appear above the button */
+    left: 0;
+    background-color: #333;
+    border: 2px solid #ff9f0a;
+    border-radius: 12px;
+    z-index: 100;
+    padding: 8px;    
+    /* Grid settings for the menu */
+    display: none; /* We will use .show to change this */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 5px;
+    min-width: 150px;
+}
+.fix-dropdown.show {
+    display: grid; 
+}
+.fix-dropdown div {
+    background: #444;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.fix-dropdown div:hover {
+    background-color: #ff9f0a;
+    color: black;
+}
+
+/* Show class to be toggled by JS */
+.show { display: block; }
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.invalid-action {
+    animation: shake 0.2s ease-in-out;
+    border: 1px solid red !important;
+}
+.cursor {
+    color: #00ffcc;
+    font-weight: bold;
+    display: inline-block;
+    width: 2px;
+    margin: 0 -1px;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
