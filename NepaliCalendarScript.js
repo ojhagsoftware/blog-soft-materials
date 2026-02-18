@@ -103,25 +103,28 @@ const START_AD_DATE_2000 = new Date('1943-04-14T00:00:00');
  *************************************************/
 class NepaliCalendar {
     constructor() {
-        this.injectCalendarHTML();
-        this.BS_YEAR_DATA = BS_YEAR_DATA;
-        this.START_AD_DATE_2000 = START_AD_DATE_2000;
-        
-        this.calendarMaterial = new CalendarMaterial();
-        
-        this.currentBsYear = 2080;
-        this.currentBsMonth = 0; // 0-indexed
-        
-        this.initializeElements();
-        this.populateDropdowns();
-        this.setToday();
-        this.initializeEventListeners();
-        this.renderCalendar();
-        
-        // Initialize converter date picker
-        this.initializeBsDatePicker();
-        this.initGlobalControls();
-    }
+      // 1. Injects modal HTML into the body
+      this.injectCalendarHTML();
+      
+      // 2. Link data
+      this.BS_YEAR_DATA = BS_YEAR_DATA;
+      this.START_AD_DATE_2000 = START_AD_DATE_2000;
+      this.calendarMaterial = new CalendarMaterial();
+  
+      this.currentBsYear = 2082; // Updated to current year
+      this.currentBsMonth = 10;   // Updated to current month (Feb is Magh/Falgun)
+  
+      // 3. Safety Check: Only initialize if the grid exists in HTML
+      if (document.getElementById('calendarGrid')) {
+          this.initializeElements();
+          this.populateDropdowns();
+          this.setToday();
+          this.initializeEventListeners();
+          this.renderCalendar();
+          this.initializeBsDatePicker();
+          this.initGlobalControls();
+      }
+  }
 
     //Method to share calendar to another folders or pages.
     injectCalendar() {
@@ -1149,5 +1152,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.nepaliCalendar = new NepaliCalendar();
     }
 });
+
 
 
