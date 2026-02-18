@@ -38,5 +38,21 @@
 
 /* Simple styling for inputs */
 input, select { padding: 10px; margin: 5px 0; border-radius: 4px; border: 1px solid #ccc; width: 100%; box-sizing: border-box; }
+/* Ensure your Blog Nav stays on top */
+.utils-nav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: white; /* Or your blog color */
+}
+
+/* Fix the Calendar Modal covering everything */
+#calendarModal, #globalCalendarModal {
+    z-index: 998 !important; /* Slightly lower than your nav */
+}
+
+.utils-container {
+    overflow: visible !important; /* Prevents buttons from getting cut off */
+}
 
 
