@@ -389,6 +389,11 @@ class NepaliCalendar {
     }
 
     renderCalendar() {
+      // GUARD CLAUSE: If the grid doesn't exist yet, stop the function
+    if (!this.calendarGrid) {
+        this.calendarGrid = document.getElementById('calendarGrid');
+        if (!this.calendarGrid) return; 
+    }
         // Clear the grid
         this.calendarGrid.innerHTML = '';
         
@@ -1152,6 +1157,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.nepaliCalendar = new NepaliCalendar();
     }
 });
+
 
 
 
