@@ -191,3 +191,8 @@ function closeModal() {
     if (winModal) winModal.style.display = 'none';
     initAdditionGame();
 }
+window.initAdditionGame = initAdditionGame;
+window.handleSelect = handleSelect;
+window.closeModal = closeModal;
+
+
