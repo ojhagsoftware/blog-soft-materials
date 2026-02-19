@@ -17,6 +17,10 @@ function initAdditionGame() {
     const grid = document.getElementById('main-grid');
     const qArea = document.getElementById('question-area');
 
+    const totalDim = currentLevel + 2;
+    // This tells the CSS how many columns to create
+    grid.style.setProperty('--grid-size', totalDim);
+    
     // Safety check: ensure elements exist before running
     if (!levelSelect || !grid || !qArea) {
         console.warn("Addition Game: Required DOM elements not found. Waiting for injection...");
@@ -194,5 +198,6 @@ function closeModal() {
 window.initAdditionGame = initAdditionGame;
 window.handleSelect = handleSelect;
 window.closeModal = closeModal;
+
 
 
