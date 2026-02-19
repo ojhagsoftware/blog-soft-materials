@@ -3,7 +3,7 @@ let currentLevel = 2;
 let targetRowSums = [];
 let targetColSums = [];
 
-function initGame() {
+function initAdditionGame() {
     currentLevel = parseInt(document.getElementById('level-select').value);
     const grid = document.getElementById('main-grid');
     const qArea = document.getElementById('question-area');
@@ -150,3 +150,4 @@ function closeModal() {
 }
 
 window.onload = initGame;
+
